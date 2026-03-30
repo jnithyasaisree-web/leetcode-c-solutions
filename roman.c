@@ -1,0 +1,34 @@
+int romanToInt(char* s) {
+    int sum=0;
+    int len=strlen(s);
+   for(int i=0;i<strlen(s);i++)
+   {
+    if (*(s + i) == 'I' && (i + 1 < len) && (*(s + i + 1) == 'V' || *(s + i + 1) == 'X')) {
+            sum += (*(s + i + 1) == 'V') ? 4 : 9;
+            i++;
+        }
+        else if (*(s + i) == 'X' && (i + 1 < len) && (*(s + i + 1) == 'L' || *(s + i + 1) ==  'C')) {
+            sum += (*(s + i + 1) == 'L') ? 40 : 90;
+            i++;
+        }
+        else if (*(s + i) == 'C' && (i + 1 < len) && (*(s + i + 1) == 'D' || *(s + i + 1) == 'M')) {
+            sum += (*(s + i + 1) == 'D') ? 400 : 900;
+            i++;
+        }
+    else if(*(s+i)=='I')
+      sum+=1;
+    else if(*(s+i)=='V')
+     sum+=5;
+    else if(*(s+i)=='X')
+     sum+=10;
+    else if(*(s+i)=='L')
+      sum+=50;
+    else if(*(s+i)=='C')
+      sum+=100;
+    else if(*(s+i)=='D')
+      sum+=500;
+    else
+      sum+=1000;
+   } 
+   return sum;
+}
